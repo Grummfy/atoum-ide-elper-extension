@@ -1,0 +1,24 @@
+{
+  "name": "atoum/ide-helper-extension",
+  "type": "library",
+  "description": "IDE helper extension for atoum, that add several usefull tools",
+  "keywords": ["TDD", "atoum", "test", "unit testing", "json", "atoum-extension"],
+  "homepage": "http://www.atoum.org",
+  "license": "BSD-3-Clause",
+  "authors": [
+	{
+	  "name": "Grummfy",
+	  "email": "me@grummfy.be"
+	}
+  ],
+  "require": {
+	"php": ">=5.6",
+	"atoum/atoum": "^3.0"
+  },
+  "autoload": {
+	"psr-4": {
+	  "atoum\\ideHelper\\": "classes"
+	},
+	"files": ["configuration.php"]
+  }
+}
