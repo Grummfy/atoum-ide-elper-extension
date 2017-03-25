@@ -5,23 +5,24 @@ namespace atoum\ideHelper;
 use mageekguy\atoum;
 use mageekguy\atoum\observable;
 use mageekguy\atoum\runner;
-use mageekguy\atoum\test;
 
 class extension implements atoum\extension
 {
+	protected $runner;
+	protected $test;
+
 	public function __construct(atoum\configurator $configurator = null)
 	{
-		if ($configurator)
-		{
+		if ($configurator) {
 			$parser = $configurator->getScript()->getArgumentsParser();
 
-			$handler = function($script, $argument, $values) {
+			$handler = function ($script, $argument, $values) {
 				$script->getRunner()->addTestsFromDirectory(dirname(__DIR__) . '/tests/units/classes');
 			};
 
 			$parser
-				->addHandler($handler, array('--test-ext'))
-				->addHandler($handler, array('--test-it'))
+				->addHandler($handler, ['--test-ext'])
+				->addHandler($handler, ['--test-it'])
 			;
 		}
 	}
@@ -35,29 +36,30 @@ class extension implements atoum\extension
 
 	public function setRunner(runner $runner)
 	{
+		$this->runner = $runner;
+
 		return $this;
 	}
 
-	public function setTest(test $test)
+	public function getRunner()
 	{
-		$asserter = null;
+		return $this->runner;
+	}
 
-//		$test->getAssertionManager()
-//			->setHandler(
-//				'json',
-//				function($json, $depth = null, $options = null) use ($test, & $asserter) {
-//					if ($asserter === null)
-//					{
-//						$asserter = new atoum\ideHelper\asserters\json($test->getAsserterGenerator());
-//					}
-//
-//					return $asserter->setWith($json, $depth, $options);
-//				}
-//			)
-//		;
+	public function setTest(atoum\test $test)
+	{
+		$this->test = $test;
 
 		return $this;
 	}
 
-	public function handleEvent($event, observable $observable) {}
+	public function getTest()
+	{
+		return $this->test;
+	}
+
+	public function handleEvent($event, observable $observable)
+	{
+		return $this;
+	}
 }
