@@ -2,9 +2,12 @@
 
 use mageekguy\atoum;
 use mageekguy\atoum\scripts;
+use atoum\ideHelper\extension;
 
-scripts\runner::addConfigurationCallable(function(atoum\configurator $script, atoum\runner $runner) {
-	$extension = new atoum\ideHelper\extension($script);
+if (defined('mageekguy\atoum\scripts\runner') === true) {
+	scripts\runner::addConfigurationCallable(function (atoum\configurator $script, atoum\runner $runner) {
+		$extension = new extension($script);
 
-	$extension->addToRunner($runner);
-});
+		$extension->addToRunner($runner);
+	});
+}
