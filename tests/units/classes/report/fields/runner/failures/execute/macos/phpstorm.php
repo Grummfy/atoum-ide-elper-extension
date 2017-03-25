@@ -1,9 +1,8 @@
 <?php
 
-namespace mageekguy\atoum\tests\units\report\fields\runner\failures\execute\macos;
+namespace atoum\ideHelper\tests\units\report\fields\runner\failures\execute\macos;
 
 use mageekguy\atoum;
-use mageekguy\atoum\report\fields\runner\failures\execute\macos\phpstorm as testedClass;
 
 class phpstorm extends atoum\test
 {
@@ -17,37 +16,37 @@ class phpstorm extends atoum\test
     public function testGetCommand()
     {
         $this
-            ->if($field = new testedClass())
+            ->if($this->newTestedInstance)
             ->then
-                ->string($field->getCommand())->isEqualTo('/Applications/PhpStorm.app/Contents/MacOS/webide --line %2$d %1$s &> /dev/null &')
+                ->string($this->testedInstance->getCommand())->isEqualTo('/Applications/PhpStorm.app/Contents/MacOS/webide --line %2$d %1$s &> /dev/null &')
 
-            ->if($field = new testedClass($command = uniqid()))
+            ->if($this->newTestedInstance($command = uniqid()))
             ->then
-                ->string($field->getCommand())->isEqualTo($command . ' --line %2$d %1$s &> /dev/null &')
+                ->string($this->testedInstance->getCommand())->isEqualTo($command . ' --line %2$d %1$s &> /dev/null &')
         ;
     }
 
     public function test__toString()
     {
         $this
-            ->if($field = new testedClass($command = uniqid()))
-            ->and($field->setAdapter($adapter = new atoum\test\adapter()))
+            ->if($this->newTestedInstance($command = uniqid()))
+            ->and($this->testedInstance->setAdapter($adapter = new atoum\test\adapter()))
             ->and($adapter->system = function () {
             })
             ->then
-                ->castToString($field)->isEmpty()
+                ->castToString($this->testedInstance)->isEmpty()
                 ->adapter($adapter)->call('system')->never()
             ->if($score = new \mock\mageekguy\atoum\runner\score())
             ->and($score->getMockController()->getErrors = [])
             ->and($runner = new atoum\runner())
             ->and($runner->setScore($score))
-            ->and($field->handleEvent(atoum\runner::runStart, $runner))
+            ->and($this->testedInstance->handleEvent(atoum\runner::runStart, $runner))
             ->then
-                ->castToString($field)->isEmpty()
+                ->castToString($this->testedInstance)->isEmpty()
                 ->adapter($adapter)->call('system')->never()
-            ->if($field->handleEvent(atoum\runner::runStop, $runner))
+            ->if($this->testedInstance->handleEvent(atoum\runner::runStop, $runner))
             ->then
-                ->castToString($field)->isEmpty()
+                ->castToString($this->testedInstance)->isEmpty()
                 ->adapter($adapter)->call('system')->never()
             ->if($score->getMockController()->getFailAssertions = $fails = [
                         [
@@ -72,9 +71,9 @@ class phpstorm extends atoum\test
                         ]
                     ]
                 )
-            ->and($field->handleEvent(atoum\runner::runStop, $runner))
+            ->and($this->testedInstance->handleEvent(atoum\runner::runStop, $runner))
             ->then
-                ->castToString($field)->isEmpty()
+                ->castToString($this->testedInstance)->isEmpty()
                 ->adapter($adapter)->call('system')->withArguments($command . ' --line ' . $line . ' ' . $file . ' &> /dev/null &')->once()
                 ->adapter($adapter)->call('system')->withArguments($command . ' --line ' . $otherLine . ' ' . $otherFile . ' &> /dev/null &')->once()
         ;
@@ -83,22 +82,22 @@ class phpstorm extends atoum\test
     public function testSetCommand()
     {
         $this
-            ->if($field = new testedClass())
+            ->if($this->newTestedInstance)
             ->then
-                ->object($field->setCommand($command = uniqid()))->isIdenticalTo($field)
-                ->string($field->getCommand())->isEqualTo($command . ' --line %2$d %1$s &> /dev/null &')
+                ->object($this->testedInstance->setCommand($command = uniqid()))->isIdenticalTo($this->testedInstance)
+                ->string($this->testedInstance->getCommand())->isEqualTo($command . ' --line %2$d %1$s &> /dev/null &')
         ;
     }
 
     public function testSetAdapter()
     {
         $this
-            ->if($field = new testedClass())
+            ->if($this->newTestedInstance)
             ->then
-                ->object($field->setAdapter($adapter = new atoum\adapter()))->isIdenticalTo($field)
-                ->object($field->getAdapter())->isEqualTo($adapter)
-                ->object($field->setAdapter())->isIdenticalTo($field)
-                ->object($field->getAdapter())
+                ->object($this->testedInstance->setAdapter($adapter = new atoum\adapter()))->isIdenticalTo($this->testedInstance)
+                ->object($this->testedInstance->getAdapter())->isEqualTo($adapter)
+                ->object($this->testedInstance->setAdapter())->isIdenticalTo($this->testedInstance)
+                ->object($this->testedInstance->getAdapter())
                     ->isNotIdenticalTo($adapter)
                     ->isEqualTo(new atoum\adapter())
         ;
@@ -107,15 +106,15 @@ class phpstorm extends atoum\test
     public function testHandleEvent()
     {
         $this
-            ->if($field = new testedClass())
-            ->and($field->setAdapter($adapter = new atoum\test\adapter()))
+            ->if($this->newTestedInstance)
+            ->and($this->testedInstance->setAdapter($adapter = new atoum\test\adapter()))
             ->and($adapter->system = function () {
             })
             ->then
-                ->boolean($field->handleEvent(atoum\runner::runStart, new atoum\runner()))->isFalse()
-                ->variable($field->getRunner())->isNull()
-                ->boolean($field->handleEvent(atoum\runner::runStop, $runner = new atoum\runner()))->isTrue()
-                ->object($field->getRunner())->isIdenticalTo($runner)
+                ->boolean($this->testedInstance->handleEvent(atoum\runner::runStart, new atoum\runner()))->isFalse()
+                ->variable($this->testedInstance->getRunner())->isNull()
+                ->boolean($this->testedInstance->handleEvent(atoum\runner::runStop, $runner = new atoum\runner()))->isTrue()
+                ->object($this->testedInstance->getRunner())->isIdenticalTo($runner)
         ;
     }
 }

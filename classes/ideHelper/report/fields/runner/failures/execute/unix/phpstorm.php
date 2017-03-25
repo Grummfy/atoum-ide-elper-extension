@@ -1,6 +1,6 @@
 <?php
 
-namespace mageekguy\atoum\report\fields\runner\failures\execute\unix;
+namespace atoum\ideHelper\report\fields\runner\failures\execute\unix;
 
 use mageekguy\atoum\report\fields\runner\failures;
 
