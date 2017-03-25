@@ -31,7 +31,7 @@ $cliReport = new atoum\reports\realtime\cli();
 $cliReport->addWriter($stdOutWriter);
 
 // then add the link to your ide, here is PHPStorm
-$cliReport->addField(new phpstorm());
+$cliReport->addField(new execute\phpstorm());
 $runner->addReport($cliReport);
 ```
 
@@ -41,15 +41,15 @@ $runner->addReport($cliReport);
 <?php
 // ...
 // under windows
-$cliReport->addField(new phpstorm('c:\\Program Files\\...\\phpstorm.exe'));
+$cliReport->addField(new execute\phpstorm('c:\\Program Files\\...\\phpstorm.exe'));
 // under macOs, if different than the default path
-$cliReport->addField(new phpstorm('/Applications/PhpStorm.app/pstorm'));
+$cliReport->addField(new execute\phpstorm('/Applications/PhpStorm.app/pstorm'));
 // under other unix
-$cliReport->addField(new phpstorm());
+$cliReport->addField(new execute\phpstorm());
 // under other unix if the command line launcher is not setted (PHPStorm>Tools>Create Command line...)
-$cliReport->addField(new phpstorm('/opt/phpstorm/bin/pstorm'));
+$cliReport->addField(new execute\phpstorm('/opt/phpstorm/bin/pstorm'));
 // under any os where PHPSTORM_PATH is defined as env var and contains a path to PHPStorm
-$cliReport->addField(new phpstorm());
+$cliReport->addField(new execute\phpstorm());
 // ...
 ```
 
@@ -58,7 +58,7 @@ $cliReport->addField(new phpstorm());
 ```php
 <?php
 // ...
-$cliReport->addField(new unix\gvim());
+$cliReport->addField(new execute\unix\gvim());
 // ...
 ```
 
@@ -67,7 +67,7 @@ $cliReport->addField(new unix\gvim());
 ```php
 <?php
 // ...
-$cliReport->addField(new unix\gedit());
+$cliReport->addField(new execute\unix\gedit());
 // ...
 ```
 
@@ -76,7 +76,7 @@ $cliReport->addField(new unix\gedit());
 ```php
 <?php
 // ...
-$cliReport->addField(new unix\geany());
+$cliReport->addField(new execute\unix\geany());
 // ...
 ```
 
@@ -85,7 +85,7 @@ $cliReport->addField(new unix\geany());
 ```php
 <?php
 // ...
-$cliReport->addField(new macos\macvim());
+$cliReport->addField(new execute\macos\macvim());
 // ...
 ```
 ### Generic
