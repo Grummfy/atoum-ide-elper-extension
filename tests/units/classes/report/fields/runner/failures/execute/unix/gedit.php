@@ -5,8 +5,6 @@ namespace mageekguy\atoum\tests\units\report\fields\runner\failures\execute\unix
 use mageekguy\atoum;
 use mageekguy\atoum\report\fields\runner\failures\execute\unix\gedit as testedClass;
 
-require_once __DIR__ . '/../../../../../../../runner.php';
-
 class gedit extends atoum\test
 {
     public function testClass()

@@ -17,7 +17,7 @@
   },
   "autoload": {
 	"psr-4": {
-	  "atoum\\ideHelper\\": "classes"
+	  "atoum\\ideHelper\\": "classes\\ideHelper"
 	},
 	"files": ["configuration.php"]
   }

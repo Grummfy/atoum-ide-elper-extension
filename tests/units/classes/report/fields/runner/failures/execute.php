@@ -5,8 +5,6 @@ namespace mageekguy\atoum\tests\units\report\fields\runner\failures;
 use mageekguy\atoum;
 use mageekguy\atoum\report\fields\runner\failures\execute as testedClass;
 
-require_once __DIR__ . '/../../../../../runner.php';
-
 class execute extends atoum\test
 {
     public function testClass()

@@ -8,8 +8,6 @@ use mageekguy\atoum\cli\prompt;
 use mageekguy\atoum\locale;
 use mageekguy\atoum\report\fields\runner;
 
-require_once __DIR__ . '/../../../../../runner.php';
-
 class cli extends atoum\test
 {
     public function testClass()

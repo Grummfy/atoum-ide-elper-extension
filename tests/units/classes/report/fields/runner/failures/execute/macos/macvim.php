@@ -5,8 +5,6 @@ namespace mageekguy\atoum\tests\units\report\fields\runner\failures\execute\maco
 use mageekguy\atoum;
 use mageekguy\atoum\report\fields\runner\failures\execute\macos\macvim as testedClass;
 
-require_once __DIR__ . '/../../../../../../../runner.php';
-
 class macvim extends atoum\test
 {
     public function testClass()
