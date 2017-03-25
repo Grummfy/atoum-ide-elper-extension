@@ -53,11 +53,32 @@ $cliReport->addField(new phpstorm());
 // ...
 ```
 
-### VIM
-
 ### gVIM
 
+```php
+<?php
+// ...
+$cliReport->addField(new unix\gvim());
+// ...
+```
+
 ### gedit
+
+```php
+<?php
+// ...
+$cliReport->addField(new unix\gedit());
+// ...
+```
+
+### geany
+
+```php
+<?php
+// ...
+$cliReport->addField(new unix\geany());
+// ...
+```
 
 ### macVIM
 
@@ -65,6 +86,19 @@ $cliReport->addField(new phpstorm());
 <?php
 // ...
 $cliReport->addField(new macos\macvim());
+// ...
+```
+### Generic
+
+For any other case, just use what's provided by atoum:
+
+```php
+<?php
+// ...
+use mageekguy\atoum\report\fields\runner\failures\execute;
+// ...
+// here with gvim
+$cliReport->addField(new execute('gvim +%2$d %1$s > /dev/null &'));
 // ...
 ```
 

@@ -4,7 +4,7 @@ namespace atoum\ideHelper\tests\units\report\fields\runner\failures\execute\unix
 
 use mageekguy\atoum;
 
-class gedit extends atoum\test
+class geany extends atoum\test
 {
     public function testClass()
     {
@@ -13,12 +13,12 @@ class gedit extends atoum\test
         ;
     }
 
-    public function test_construct()
+    public function test__construct()
     {
         $this
             ->if($this->newTestedInstance)
             ->then
-                ->string($this->testedInstance->getCommand())->isEqualTo('gedit %1$s +%2$d > /dev/null &')
+                ->string($this->testedInstance->getCommand())->isEqualTo('geany %1$s --line %2$d > /dev/null &')
         ;
     }
 }
