@@ -32,6 +32,8 @@ $cliReport->addField(new execute\phpstorm());
 $runner->addReport($cliReport);
 ```
 
+The best would be to configure it on your machine and not on on your repository and use the inheritance of [atoum's configuration](http://docs.atoum.org/en/latest/configuration_bootstraping.html#fichier-de-configuration) to use it.
+
 ### PHPStorm
 
 ```php
