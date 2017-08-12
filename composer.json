@@ -1,5 +1,5 @@
 {
-  "name": "atoum/ide-helper-extension",
+  "name": "grummfy/atoum-ide-helper-extension",
   "type": "library",
   "description": "IDE helper extension for atoum, that add several usefull tools",
   "keywords": ["TDD", "atoum", "test", "unit testing", "json", "atoum-extension"],

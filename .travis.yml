@@ -21,9 +21,6 @@ matrix:
   allow_failures:
     - php: nightly
 
-notifications:
-  irc: "irc.freenode.org##atoum"
-
 script:
   - composer update $COMPOSER_PREFER
   - vendor/bin/atoum --test-ext -p 'php -n -ddate.timezone=UTC'

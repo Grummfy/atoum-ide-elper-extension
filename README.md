@@ -1,9 +1,6 @@
-# atoum/ide-helper-extension [![Build Status](https://travis-ci.org/atoum/ide-helper-extension.svg?branch=master)](https://travis-ci.org/atoum/ide-helper-extension)
+# grummfy/atoum-ide-helper-extension [![Build Status](https://travis-ci.org/atoum/ide-helper-extension.svg?branch=master)](https://travis-ci.org/grummfy/atoum-ide-helper-extension)
 
-This extension add some helps in relations with your IDE.
-
-* open failed test inside your IDE
-* ....
+This extension add some helps in relations with your IDE by opening failed test inside your IDE.
 
 ## Install it
 
@@ -12,7 +9,7 @@ This extension add some helps in relations with your IDE.
 Install extension using [composer](https://getcomposer.org):
 
 ```
-composer require --dev atoum/ide-helper-extension
+composer require --dev grummfy/atoum-ide-helper-extension
 ```
 
 ## Configure it
@@ -110,6 +107,10 @@ $cliReport->addField(new execute('gvim +%2$d %1$s > /dev/null &'));
 
 ## License
 
-ide-helper-extension is released under the BSD-3-Clause License. See the bundled [LICENSE](LICENSE) file for details.
+atoum-ide-helper-extension is released under the BSD-3-Clause License. See the bundled [LICENSE](LICENSE) file for details.
 
 ![atoum](http://atoum.org/images/logo/atoum.png)
+
+## Origin of the extension
+
+This extension was originally an extraction of the code from the code inside atoum with some improvements.
