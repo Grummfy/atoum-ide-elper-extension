@@ -1,4 +1,4 @@
-# grummfy/atoum-ide-helper-extension [![Build Status](https://travis-ci.org/Grummfy/ide-helper-extension.svg?branch=master)](https://travis-ci.org/Grummfy/atoum-ide-helper-extension)
+# grummfy/atoum-ide-helper-extension [![Build Status](https://travis-ci.org/Grummfy/atoum-ide-helper-extension.svg?branch=master)](https://travis-ci.org/Grummfy/atoum-ide-helper-extension)
 
 This extension add some helps in relations with your IDE by opening failed test inside your IDE.
 
